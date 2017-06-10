@@ -1,0 +1,14 @@
+<div class="a4c_confrirmDialog" [style.width.px]="width" #confirmDialog>
+  <div class="a4c_confrirmDialogHeader">
+    <h3 class="panel-title" *ngIf="header">{{header}}</h3>
+    <ng-content select="brp-header" *ngIf="!header"></ng-content>
+  </div>
+
+  <div class="a4c_confrirmDialogBody">
+    <ng-content></ng-content>
+  </div>
+  <div class="a4c_confirmDialogFooter">
+    <button (click)="confirmClick()"> Ok</button>
+    <button (click)="cancelClick()"> Cancel</button>
+  </div>
+</div>
