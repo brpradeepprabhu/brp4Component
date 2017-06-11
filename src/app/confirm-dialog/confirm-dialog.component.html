@@ -1,13 +1,13 @@
 <div class="a4c_modal" [hidden]="!_modal">...</div>
-<div class="a4c_confrirmDialog" [style.width.px]="width" #confirmDialog>
-  <div class="a4c_confrirmDialogHeader" *ngIf="header">
-    <span class="a4c_confrirmDialogTitle">{{header}}</span> <span style="float:right" role="button"
+<div class="a4c_confirmDialog" [style.width.px]="width" #confirmDialog>
+  <div class="a4c_confirmDialogHeader" *ngIf="header">
+    <span class="a4c_confirmDialogTitle">{{header}}</span> <span style="float:right" role="button"
                                                                   (click)="visibleConfirm(false)" *ngIf="_close"><i
     class="fa fa-close fa-lg"></i></span>
   </div>
   <ng-content select="a4-header" *ngIf="!header"></ng-content>
 
-  <div class="a4c_confrirmDialogBody">
+  <div class="a4c_confirmDialogBody">
     <ng-content></ng-content>
   </div>
   <div class="a4c_confirmDialogFooter">

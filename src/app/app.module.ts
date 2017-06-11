@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {ConfirmDialogModule,SharedModule} from './a4Component';
-import {ButtonModule} from "./button/button.component";
-import { AlertComponent } from './alert/alert.component';
+import {ButtonModule} from "./a4Component";
+import { AlertModule } from './a4Component';
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent
+
 
   ],
   imports: [
@@ -16,7 +16,8 @@ import { AlertComponent } from './alert/alert.component';
     BrowserModule,
     ConfirmDialogModule,
     SharedModule,
-    ButtonModule
+    ButtonModule,
+    AlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

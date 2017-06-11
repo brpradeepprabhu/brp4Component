@@ -1,4 +1,4 @@
-.a4c_confrirmDialog {
+.a4c_confirmDialog {
   width: 100%;
   background-color: white;
   margin-bottom: 20px;
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.a4c_confrirmDialogHeader {
+.a4c_confirmDialogHeader {
   position: relative;
   width: 100%;
   min-height: 35px;
@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-.a4c_confrirmDialogBody {
+.a4c_confirmDialogBody {
   position: relative;
   width: 100%;
   padding: 15px;
@@ -37,7 +37,7 @@
   padding: 15px;
 }
 
-.a4c_confrirmDialogTitle {
+.a4c_confirmDialogTitle {
   font-weight: bold;
   font-size: 16px;
 }

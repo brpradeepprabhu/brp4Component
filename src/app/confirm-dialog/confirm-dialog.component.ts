@@ -6,7 +6,7 @@ import {ButtonModule,ButtonComponent} from '../button/button.component'
 import setPrototypeOf = Reflect.setPrototypeOf;
 import {passBoolean} from "protractor/built/util";
 @Component({
-  selector: 'a4c-dialog',
+  selector: 'a4c-confirm',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.css']
 })
@@ -32,8 +32,11 @@ export class ConfirmDialog implements AfterViewInit {
     this._modal = (val == "true") ? true : false;
     console.log("mm", this._modal, val)
   };
+
   @Output() confirm:EventEmitter<any> = new EventEmitter();
   @Output() cancel:EventEmitter<any> = new EventEmitter();
+  @Output() onOpen:EventEmitter<any> = new EventEmitter();
+  @Output() onClose:EventEmitter<any> = new EventEmitter();
   @ViewChild('confirmDialog') confirmDialogEle:ElementRef;
   @ContentChild(Header) headerTemplate;
   public _modal:boolean = false;
@@ -50,7 +53,7 @@ export class ConfirmDialog implements AfterViewInit {
     this.confirmDialogDiv = this.confirmDialogEle.nativeElement;
     this.visibleConfirm(this.visible);
     this.setPosition();
-    window.onresize = this.setPosition.bind(this);
+    window.addEventListener("resize", this.setPosition.bind(this))
 
   }
 
@@ -65,8 +68,7 @@ export class ConfirmDialog implements AfterViewInit {
 
   confirmClick() {
     this.confirm.emit();
-    console.log(this.confirmDialogEle)
-
+    this.visibleConfirm(false);
   }
 
   cancelClick() {
@@ -77,6 +79,11 @@ export class ConfirmDialog implements AfterViewInit {
   visibleConfirm(visibility:boolean) {
     this.visible = visibility;
     this.ele.nativeElement.style.display = this.visible ? 'block' : 'none';
+    if (visibility) {
+      this.onOpen.emit();
+    } else {
+      this.onClose.emit();
+    }
   }
 
 }
