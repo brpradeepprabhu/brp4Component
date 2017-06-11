@@ -5,7 +5,8 @@
   </h1>
 
 </div>
-
-<brp-dialog header="i am the header" footer="footer here" visible="true" (confirm)="confrimYesClick()">
-  the body content will display here
-</brp-dialog>
+<a4c-button (click)="showConfirm()">show confirm</a4c-button>
+<a4c-dialog header="Header" footer="footer here" visible="true" (confirm)="confrimYesClick()" closeBtn="true"
+            modal="true">
+  Place your confirmation message here
+</a4c-dialog>

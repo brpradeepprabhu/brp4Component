@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "brp4-component"
+    "name": "a4-component"
   },
   "apps": [
     {

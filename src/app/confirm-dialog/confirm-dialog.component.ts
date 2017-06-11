@@ -2,9 +2,11 @@ import { NgModule, Component, ElementRef, AfterViewInit, OnDestroy, Input, Outpu
 import {Header} from "../shared/shared"
 import {CommonModule} from '@angular/common';
 import * as global from '../shared/global';
+import {ButtonModule,ButtonComponent} from '../button/button.component'
 import setPrototypeOf = Reflect.setPrototypeOf;
+import {passBoolean} from "protractor/built/util";
 @Component({
-  selector: 'brp-dialog',
+  selector: 'a4c-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.css']
 })
@@ -12,11 +14,30 @@ export class ConfirmDialog implements AfterViewInit {
   @Input() header;
   @Input() footer;
   @Input() visible:boolean = false;
+  @Input() width:number = 500;
+
+  @Input() get closeBtn():string {
+    return this._close.toString();
+  };
+
+  set closeBtn(val:string) {
+    this._close = (val == "true") ? true : false;
+  };
+
+  @Input() get modal():string {
+    return this._modal.toString();
+  };
+
+  set modal(val:string) {
+    this._modal = (val == "true") ? true : false;
+    console.log("mm", this._modal, val)
+  };
   @Output() confirm:EventEmitter<any> = new EventEmitter();
   @Output() cancel:EventEmitter<any> = new EventEmitter();
   @ViewChild('confirmDialog') confirmDialogEle:ElementRef;
   @ContentChild(Header) headerTemplate;
-  @Input() width:number = 500;
+  public _modal:boolean = false;
+  public _close:boolean = true;
   private confirmDialogDiv;
 
   constructor(private ele:ElementRef) {
@@ -27,9 +48,10 @@ export class ConfirmDialog implements AfterViewInit {
 
   ngAfterViewInit() {
     this.confirmDialogDiv = this.confirmDialogEle.nativeElement;
-    this.confirmDialogDiv.style.display = this.visible ? 'block' : 'none';
+    this.visibleConfirm(this.visible);
     this.setPosition();
     window.onresize = this.setPosition.bind(this);
+
   }
 
   setPosition() {
@@ -44,20 +66,22 @@ export class ConfirmDialog implements AfterViewInit {
   confirmClick() {
     this.confirm.emit();
     console.log(this.confirmDialogEle)
+
   }
 
   cancelClick() {
-    this.visible = false;
+    this.visibleConfirm(false);
     this.cancel.emit();
   }
 
   visibleConfirm(visibility:boolean) {
     this.visible = visibility;
+    this.ele.nativeElement.style.display = this.visible ? 'block' : 'none';
   }
 
 }
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonModule],
   exports: [ConfirmDialog],
   declarations: [ConfirmDialog]
 })

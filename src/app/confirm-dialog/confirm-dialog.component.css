@@ -5,7 +5,7 @@
   position: relative;
   border: 1px solid #D5D5D5;
   border-radius: 3px;
-
+  box-sizing: border-box;
 }
 
 .a4c_confrirmDialogHeader {
@@ -16,6 +16,7 @@
   padding: 15px;
   background-color: #337ab7;
   color: white;
+  box-sizing: border-box;
 }
 
 .a4c_confrirmDialogBody {
@@ -28,6 +29,25 @@
   position: relative;
   border-top: 1px solid #D5D5D5;
   min-height: 35px;
-  padding: 15px;
 
+}
+
+.a4c_confirmDialogFooter > div {
+  float: right;
+  padding: 15px;
+}
+
+.a4c_confrirmDialogTitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.a4c_modal {
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
