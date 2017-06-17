@@ -1,0 +1,19 @@
+<div class="a4c_modal" [hidden]="!_modal">...</div>
+<div class="a4c_alertDialog" [style.width.px]="width" #alertDialog>
+  <div class="a4c_alertDialogHeader" *ngIf="header">
+    <span class="a4c_alertDialogTitle">{{header}}</span> <span style="float:right;cursor: pointer" role="button"
+                                                                  (click)="visibleAlert(false)" *ngIf="_close"><i
+    class="fa fa-close fa-lg"></i></span>
+  </div>
+  <ng-content select="a4-header" *ngIf="!header"></ng-content>
+
+  <div class="a4c_alertDialogBody">
+    <ng-content></ng-content>
+  </div>
+  <div class="a4c_alertDialogFooter">
+    <div>
+      <a4c-button (click)="alertClick()" customClass="primary" icon="fa fa-check"> Ok</a4c-button>
+    </div>
+
+  </div>
+</div>

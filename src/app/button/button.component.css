@@ -14,7 +14,11 @@
   border-radius: 4px;
   outline: 0;
 }
-
+.a4c-button.block
+{
+  display: block;
+  width:100%;
+}
 .a4c-button:hover {
   background-color: #e6e6e6;
   border-color: #adadad;

@@ -2,24 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {ConfirmDialogModule,SharedModule} from './a4Component';
-import {ButtonModule} from "./a4Component";
-import { AlertModule } from './a4Component';
+import {ConfirmDialogModule,SharedModule,ButtonModule,AlertModule,OrderlistModule} from './a4Component';
+
 @NgModule({
   declarations: [
-    AppComponent,
-
-
-  ],
+    AppComponent],
   imports: [
     CommonModule,
     BrowserModule,
     ConfirmDialogModule,
     SharedModule,
     ButtonModule,
-    AlertModule
+    AlertModule,
+    OrderlistModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

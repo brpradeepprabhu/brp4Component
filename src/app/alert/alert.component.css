@@ -1,0 +1,53 @@
+.a4c_alertDialog {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid #D5D5D5;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.a4c_alertDialogHeader {
+  position: relative;
+  width: 100%;
+  min-height: 35px;
+  border-radius: 2px;
+  padding: 15px;
+  background-color: #337ab7;
+  color: white;
+  box-sizing: border-box;
+}
+
+.a4c_alertDialogBody {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+}
+
+.a4c_alertDialogFooter {
+  position: relative;
+  border-top: 1px solid #D5D5D5;
+  min-height: 35px;
+
+}
+
+.a4c_alertDialogFooter > div {
+  float: right;
+  padding: 15px;
+}
+
+.a4c_alertDialogTitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.a4c_modal {
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
