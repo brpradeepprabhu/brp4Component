@@ -15,8 +15,8 @@ export class AppComponent {
   //{
   //  this.alertDialog.visibleAlert(true);
   //}
-  data = [{name: "Rambo", age: "28"}, {name: "Ram", age: "28"}, {name: "George", age: "28"}, {
-    name: "Randy",
+  data = [{name: "a", age: "28"}, {name: "b", age: "28"}, {name: "c", age: "28"}, {
+    name: "d",
     age: "28"
-  }, {name: "Rambo", age: "28"}, {name: "Ram", age: "28"}, {name: "George", age: "28"}, {name: "Randy", age: "28"}]
+  }, {name: "e", age: "28"}, {name: "f", age: "28"}, {name: "g", age: "28"}, {name: "h", age: "28"}]
 }

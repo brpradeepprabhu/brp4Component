@@ -3405,7 +3405,7 @@ template {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
-.col-grid-1, .col-grid-2, .col-grid-3, .col-grid-4, .col-grid-5, .col-grid-6, .col-grid-7, .col-grid-8, .col-grid-9, .col-grid-10, .col-grid-11, .col-grid-12 {
+.col-grid-1, .col-grid-2, .col-grid-3, .col-grid-4, .col-grid-5,.col-grid-5_5, .col-grid-6, .col-grid-7, .col-grid-8, .col-grid-9, .col-grid-10, .col-grid-11, .col-grid-12 {
   float: left;
   position: relative;
   min-height: 1px;
@@ -3432,6 +3432,10 @@ template {
 }
 .col-grid-6 {
   width: 50%;
+}
+.col-grid-5_5
+{
+  width :45.83%;
 }
 .col-grid-5 {
   width: 41.66666667%;

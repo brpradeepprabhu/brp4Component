@@ -1,15 +1,19 @@
-<div class="col-grid-2">
-  <a4c-button (click)="reachTop()" [block]=true customClass="primary" icon="fa fa-check"> Go to Top</a4c-button>
-  <a4c-button (click)="confirmClick()" [block]=true customClass="primary" icon="fa fa-check"> OneUp</a4c-button>
-  <a4c-button (click)="cancelClick()"  [block]=true customClass="primary" icon="fa fa-close"> OneDown</a4c-button>
-  <a4c-button (click)="reachEnd()"  [block]=true customClass="primary" icon="fa fa-close"> Go to end</a4c-button>
-</div>
-<div class="col-grid-10">
-  <div class="a4c_orderheader" *ngIf="header">
-    <span class="a4c_orderTitle">{{header}}</span>
+<div class="col-grid-12" #orderContianer >
+  <div class="col-grid-2" #buttonContainer>
+    <a4c-button (click)="moveTop()" [block]=true customClass="primary" icon="fa fa-angle-double-up"></a4c-button>
+    <a4c-button (click)="oneTop()" [block]=true customClass="primary" icon="fa fa-angle-up"></a4c-button>
+    <a4c-button (click)="oneBottom()" [block]=true customClass="primary" icon="fa fa-angle-down"></a4c-button>
+    <a4c-button (click)="moveBottom()" [block]=true customClass="primary" icon="fa fa-angle-double-down"></a4c-button>
   </div>
-  <div *ngFor="let values of data">
-    <div class="a4c-list" (click)="rowClicked($event,values)">{{values[field]}}
+  <div class="col-grid-10" #orderlistContainer style="padding:0; border:1px solid #d4d4d4">
+    <div class="a4c_orderheader" *ngIf="header">
+      <span class="a4c_orderTitle">{{header}}</span>
+    </div>
+    <div #orderListValues>
+      <div *ngFor="let values of data">
+        <div class="a4c-list" (click)="rowClicked($event,values)">{{values[field]}}
+        </div>
+      </div>
     </div>
   </div>
 </div>

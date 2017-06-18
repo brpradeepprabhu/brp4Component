@@ -132,6 +132,21 @@ export class CommonHandler {
     return this.isNumber(maxDepth) && maxDepth > 0;
   }
 
+  findIndexInList(item:any, list:any):number {
+    let index:number = -1;
+
+    if (list) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i] == item) {
+          index = i;
+          break;
+        }
+      }
+    }
+
+    return index;
+  }
+
   copy(source, destination, maxDepth) {
     var stackSource = [];
     var stackDest = [];

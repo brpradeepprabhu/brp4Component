@@ -18,7 +18,6 @@ export class ButtonComponent implements AfterViewInit {
   };
 
   ngAfterViewInit() {
-    console.log(this.icon);
     this.customClass = (this.block)? "block "+ this.customClass : this.customClass;
     this.commonService.addClass(this.buttonTag.nativeElement,this.customClass);
   };
