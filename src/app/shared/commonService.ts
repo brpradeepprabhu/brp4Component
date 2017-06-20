@@ -1,60 +1,138 @@
 import { Injectable,ElementRef } from '@angular/core';
-
+/**
+ * Common functionalities of angular1
+ */
 @Injectable()
-export class CommonHandler {
 
+export class CommonHandler {
+  /**
+   * Initalize the common handler
+   */
   constructor() {
   }
 
+  /**
+   * To check whether object has own property
+   * @type {(function(string): boolean)|(function(PropertyKey): boolean)}
+   */
   hasOwnProperty = Object.prototype.hasOwnProperty;
+  /**
+   * To check whether the object has protoype
+   * @type {function(any): any}
+   */
   getPrototypeOf = Object.getPrototypeOf;
+  /**
+   * To check whether it is an array
+   * @type {function(any): boolean}
+   */
   isArray = Array.isArray;
 
+  /**
+   * To add a class to the element
+   * @param ele - Dom Element
+   * @param className - adding the className
+   */
   addClass(ele:any, className:string) {
     ele.className = ele.className + " " + className;
   }
 
+  /**
+   * To remove a class from the element
+   * @param ele
+   * @param className
+   */
   removeClass(ele:any, className:string) {
     ele.className = ele.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
 
+  /**
+   * To check the object is blank
+   * @param value
+   * @returns {boolean}
+   */
   isBlankObject(value) {
     return value !== null && typeof value === 'object' && !this.getPrototypeOf(value);
   }
 
+  /**
+   * To check the value is defined
+   * @param value
+   * @returns {boolean}
+   */
   isDefined(value) {
     return typeof value !== 'undefined';
   }
+
+  /**
+   * To check the value is not defined
+   * @param value
+   * @returns {boolean}
+   */
 
   isUndefined(value) {
     return typeof value === 'undefined';
   }
 
+  /**
+   * To check the value is object
+   * @param value
+   * @returns {boolean}
+   */
   isObject(value) {
     // http://jsperf.com/isobject4
     return value !== null && typeof value === 'object';
   }
 
+  /**
+   * To check the value is string
+   * @param value
+   * @returns {boolean}
+   */
   isString(value) {
     return typeof value === 'string';
   }
 
+  /**
+   * To check the value is numberic
+   * @param value
+   * @returns {boolean}
+   */
   isNumber(value) {
     return typeof value === 'number';
   }
 
+  /**
+   * To check the value is Date
+   * @param value
+   * @returns {boolean}
+   */
   isDate(value) {
     return toString.call(value) === '[object Date]';
   }
 
+  /**
+   * To check the value is function
+   * @param value
+   * @returns {boolean}
+   */
   isFunction(value) {
     return typeof value === 'function';
   }
 
+  /**
+   * To check the value is window or not
+   * @param obj
+   * @returns {any|boolean}
+   */
   isWindow(obj) {
     return obj && obj.window === obj;
   }
 
+  /**
+   * To check whether the values is array like
+   * @param obj
+   * @returns {boolean}
+   */
   isArrayLike(obj) {
 
     if (obj == null || this.isWindow(obj)) return false;
@@ -76,6 +154,13 @@ export class CommonHandler {
 
   }
 
+  /**
+   * To get each value of object/array
+   * @param obj
+   * @param iterator
+   * @param context
+   * @returns {any}
+   */
   forEach(obj, iterator, context) {
     var key, length;
     if (obj) {
@@ -118,20 +203,42 @@ export class CommonHandler {
     return obj;
   }
 
-  TYPED_ARRAY_REGEXP = /^\[object (?:Uint8|Uint8Clamped|Uint16|Uint32|Int8|Int16|Int32|Float32|Float64)Array]$/;
 
+
+  /**
+   * To check the value is typedarray
+   * @param value
+   * @returns {any|boolean}
+   */
   isTypedArray(value) {
-    return value && this.isNumber(value.length) && this.TYPED_ARRAY_REGEXP.test(toString.call(value));
+    let TYPED_ARRAY_REGEXP = /^\[object (?:Uint8|Uint8Clamped|Uint16|Uint32|Int8|Int16|Int32|Float32|Float64)Array]$/;
+    return value && this.isNumber(value.length) && TYPED_ARRAY_REGEXP.test(toString.call(value));
   }
 
+  /**
+   * To check the arraybuffer
+   * @param obj
+   * @returns {boolean}
+   */
   isArrayBuffer(obj) {
     return toString.call(obj) === '[object ArrayBuffer]';
   }
 
+  /**
+   * To check whether it is  valid max depth for the copy the element
+   * @param maxDepth
+   * @returns {boolean}
+   */
   isValidObjectMaxDepth(maxDepth) {
     return this.isNumber(maxDepth) && maxDepth > 0;
   }
 
+  /**
+   * To find the index in a list
+   * @param item
+   * @param list
+   * @returns {number}
+   */
   findIndexInList(item:any, list:any):number {
     let index:number = -1;
 
@@ -147,6 +254,13 @@ export class CommonHandler {
     return index;
   }
 
+  /**
+   * To copy the element from destination to source
+   * @param source
+   * @param destination
+   * @param maxDepth
+   * @returns {any}
+   */
   copy(source, destination, maxDepth) {
     var stackSource = [];
     var stackDest = [];
@@ -183,7 +297,15 @@ export class CommonHandler {
 
   }
 
-
+  /**
+   *  Inner function for the copy element
+   * @param source
+   * @param destination
+   * @param maxDepth
+   * @param stackSource
+   * @param stackDest
+   * @returns {any}
+   */
   copyRecurse(source, destination, maxDepth, stackSource, stackDest) {
     maxDepth--;
     if (maxDepth < 0) {
@@ -219,6 +341,11 @@ export class CommonHandler {
     return destination;
   }
 
+  /**
+   * Set the hashkey for the object
+   * @param obj
+   * @param h
+   */
   setHashKey(obj, h) {
     if (h) {
       obj.$$hashKey = h;
@@ -227,6 +354,14 @@ export class CommonHandler {
     }
   }
 
+  /**
+   * Inner function for the copy
+   * @param source
+   * @param maxDepth
+   * @param stackSource
+   * @param stackDest
+   * @returns {any}
+   */
   copyElement(source, maxDepth, stackSource, stackDest) {
     // Simple values
     if (!this.isObject(source)) {
@@ -259,6 +394,13 @@ export class CommonHandler {
       : destination;
   }
 
+  /**
+   * Inner function of the copy
+   * @param source
+   * @param stackSource
+   * @param stackDest
+   * @returns {any}
+   */
   copyType(source, stackSource, stackDest) {
     switch (toString.call(source)) {
       case '[object Int8Array]':

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>brp4-component documentation</title>
+        <title>a4c_angular4_component documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">brp4-component documentation</a>
+            <a href="../" class="navbar-brand">a4c_angular4_component documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">brp4-component documentation</a>
+                        <a href="../index.html">a4c_angular4_component documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -76,6 +76,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/OrderlistModule.html"  data-type="entity-link" class="active" >OrderlistModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PickListModule.html" >PickListModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -187,7 +190,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">brp4-component documentation</a>
+                               <a href="../index.html">a4c_angular4_component documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -240,6 +243,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/OrderlistModule.html"  data-type="entity-link" class="active" >OrderlistModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PickListModule.html" >PickListModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -491,6 +497,12 @@
             <code>src/app/orderlist/orderlist.component.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Angular 4 component to display the object in order list</p><br/>
+            </p>
 
         <div class="container-fluid module">
             <div class="row">
@@ -534,38 +546,89 @@
 import {CommonModule} from &#x27;@angular/common&#x27;;
 import  {ButtonModule} from &#x27;../a4Component&#x27;;
 import {CommonHandler} from &quot;../shared/commonService&quot;;
+/**
+ * Angular 4 component to display the object in order list
+ */
 @Component({
   selector: &#x27;a4c-order&#x27;,
   templateUrl: &#x27;./orderlist.component.html&#x27;,
   styleUrls: [&#x27;./orderlist.component.css&#x27;]
 })
 export class OrderlistComponent implements AfterViewInit {
+  /**
+   * To display the data in the grid
+   */
   @Input() data:any[];
+  /**
+   * To display which field of the data in the list
+   */
   @Input() field:any;
-  @Input() height:number&#x3D; 150;
+  /**
+   * Height of the order list
+   */
+  @Input() height:number &#x3D; 150;
+  /**
+   * Header for the order list element
+   */
   @Input() header:string;
+  /**
+   * To add a custom class
+   */
   @Input() customClass:string;
-  @Input() btnPosition:string&#x3D;&quot;&quot;;
+  /**
+   * To display where the button to be displayed (left|Right)
+   */
+  @Input() btnPosition:string &#x3D; &quot;&quot;;
+  /**
+   * Event Emitter when row is selected
+   * @type {EventEmitter&lt;any&gt;}
+   */
   @Output() onRowClick:EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  /**
+   * To get the element reference of button container
+   */
   @ViewChild(&#x27;buttonContainer&#x27;) buttonDiv:ElementRef;
+  /**
+   * To get the element reference of the order list container
+   */
   @ViewChild(&#x27;orderlistContainer&#x27;) orderDiv:ElementRef;
+  /**
+   * To get element reference order list values
+   */
   @ViewChild(&#x27;orderListValues&#x27;) orderListValues:ElementRef;
-  @ViewChild (&#x27;orderContianer&#x27;) orderContianer:ElementRef;
+  /**
+   * To get element reference order container
+   */
+  @ViewChild(&#x27;orderContianer&#x27;) orderContianer:ElementRef;
+  /**
+   * Store the selected row in the list
+   */
   selectedRow:any;
 
+  /**
+   * Initalize the order list component
+   * @param ele
+   * @param commonService
+     */
   constructor(private ele:ElementRef, private commonService:CommonHandler) {
   }
 
+  /**
+   * Implement the Afer view init
+   */
   ngAfterViewInit() {
-    this.commonService.addClass(this.orderContianer,this.customClass)
+    this.commonService.addClass(this.orderContianer, this.customClass)
     this.orderListValues.nativeElement.style.overflow &#x3D; &quot;auto&quot;;
-    this.orderListValues.nativeElement.style.height&#x3D; this.height+ &quot;px&quot;;
+    this.orderListValues.nativeElement.style.height &#x3D; this.height + &quot;px&quot;;
     this.selectedRow &#x3D; {target: undefined, data: undefined};
     this.buttonDiv.nativeElement.style.marginTop &#x3D; (this.orderDiv.nativeElement.offsetHeight - this.buttonDiv.nativeElement.offsetHeight) / 2 + &quot;px&quot;;
     this.buttonDiv.nativeElement.style.float &#x3D; (this.btnPosition.trim().toLowerCase() &#x3D;&#x3D; &quot;right&quot;) ? &quot;right&quot; : &quot;left&quot;;
 
   }
 
+  /**
+   * To check whether the row is selected
+   */
   isSelected() {
     if (this.commonService.isUndefined(this.selectedRow.target)) {
       console.error(&quot;select atleast one row&quot;)
@@ -574,6 +637,9 @@ export class OrderlistComponent implements AfterViewInit {
     return true;
   }
 
+  /**
+   * On click of move the selected row to the top
+   */
   moveTop() {
     if (this.isSelected()) {
       let index &#x3D; this.data.indexOf(this.selectedRow.data);
@@ -583,6 +649,9 @@ export class OrderlistComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * On click of one row to top
+   */
   oneTop() {
     if (this.isSelected()) {
       let index &#x3D; this.data.indexOf(this.selectedRow.data);
@@ -593,6 +662,9 @@ export class OrderlistComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * On click of one row to the bottom
+   */
   oneBottom() {
     if (this.isSelected()) {
       let index &#x3D; this.data.indexOf(this.selectedRow.data);
@@ -603,6 +675,9 @@ export class OrderlistComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * On click of one row to bottom
+   */
   moveBottom() {
 
     if (this.isSelected()) {
@@ -613,6 +688,11 @@ export class OrderlistComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * On click of the row in the list
+   * @param e
+   * @param data
+   */
   rowClicked(e, data) {
 
     this.selectedRow.target &#x3D; e.currentTarget;
@@ -625,6 +705,9 @@ export class OrderlistComponent implements AfterViewInit {
     this.onRowClick.emit({browserEvent: e, data: data});
   }
 }
+/**
+ * Orderlist module  to use the common module and button module
+ */
 @NgModule({
   imports: [CommonModule, ButtonModule],
   exports: [OrderlistComponent],

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>brp4-component documentation</title>
+        <title>a4c_angular4_component documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">brp4-component documentation</a>
+            <a href="../" class="navbar-brand">a4c_angular4_component documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">brp4-component documentation</a>
+                        <a href="../index.html">a4c_angular4_component documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -76,6 +76,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PickListModule.html" >PickListModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -187,7 +190,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">brp4-component documentation</a>
+                               <a href="../index.html">a4c_angular4_component documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -240,6 +243,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PickListModule.html" >PickListModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -475,6 +481,12 @@
             <code>src/app/alert/alert.component.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Angular 4 component for dispalying the alert dialog</p><br/>
+            </p>
 
         <div class="container-fluid module">
             <div class="row">
@@ -513,16 +525,34 @@ import * as global from &#x27;../shared/global&#x27;;
 import {ButtonModule,ButtonComponent} from &#x27;../button/button.component&#x27;
 import setPrototypeOf &#x3D; Reflect.setPrototypeOf;
 import {passBoolean} from &quot;protractor/built/util&quot;;
+/**
+ * Angular 4 component for dispalying the alert dialog
+ */
 @Component({
   selector: &#x27;a4c-alert&#x27;,
   templateUrl: &#x27;./alert.component.html&#x27;,
   styleUrls: [&#x27;./alert.component.css&#x27;]
 })
 export class AlertDialog implements AfterViewInit {
+  /**
+   * String to dispaly the title for the dialog
+   */
   @Input() header;
+  /**
+   * Set the Visibility of alert dialog
+   * @type {boolean}
+   */
   @Input() visible:boolean &#x3D; false;
+  /**
+   * Set the Width of the dialog
+   * @type {number}
+   */
   @Input() width:number &#x3D; 100;
 
+  /**
+   * Set the visibility for the closebtn
+   * @returns {string}
+   */
   @Input() get closeBtn():string {
     return this._close.toString();
   };
@@ -531,6 +561,10 @@ export class AlertDialog implements AfterViewInit {
     this._close &#x3D; (val &#x3D;&#x3D; &quot;true&quot;);
   };
 
+  /**
+   * Set the visibility for the modal
+   * @returns {string}
+   */
   @Input() get modal():string {
     return this._modal.toString();
   };
@@ -540,43 +574,91 @@ export class AlertDialog implements AfterViewInit {
     console.log(&quot;mm&quot;, this._modal, val)
   };
 
+  /**
+   * Event Emitter for on click of ok button
+   * @type {EventEmitter}
+   */
   @Output() alert:EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  /**
+   * Event Emitter for on dialog is opened
+   * @type {EventEmitter}
+   */
   @Output() onOpen:EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  /**
+   * Event  Emitter for on dialog box is closed
+   * @type {EventEmitter}
+   */
   @Output() onClose:EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  /**
+   * Element ref for the alert dialog element
+   */
   @ViewChild(&#x27;alertDialog&#x27;) alertDialogEle:ElementRef;
+  /**
+   * To check whether header component is present
+   */
   @ContentChild(Header) headerTemplate;
-  public _modal:boolean &#x3D; true;
-  public _close:boolean &#x3D; true;
+  /**
+   * To set the local variable of the modal
+   * @type {boolean}
+   * @private
+   */
+  private _modal:boolean &#x3D; true;
+  /**
+   * To set the local variable of the close button
+   * @type {boolean}
+   * @private
+   */
+  private _close:boolean &#x3D; true;
+  /**
+   * Dom element of alert dialog
+   */
   private alertDialogDiv;
 
+  /**
+   * Initalize the component
+   * @param ele
+   */
   constructor(private ele:ElementRef) {
     this.ele.nativeElement.style.position &#x3D; &quot;fixed&quot;;
     this.ele.nativeElement.style.left &#x3D; 0;
     this.ele.nativeElement.style.top &#x3D; 0;
   }
 
+  /**
+   * Implementing the Afterview init interface
+   */
   ngAfterViewInit() {
     this.alertDialogDiv &#x3D; this.alertDialogEle.nativeElement;
     this.visibleAlert(this.visible);
     this.setPosition();
-    window.addEventListener(&quot;resize&quot;,this.setPosition.bind(this))
+    window.addEventListener(&quot;resize&quot;, this.setPosition.bind(this))
 
   };
+
+  /**
+   * To set the positon in the middle of the window
+   */
   setPosition() {
 
-    var leftPos &#x3D; (window.innerWidth/2 - this.alertDialogDiv.offsetWidth/2) ;
-    var topPos &#x3D; (window.innerHeight/2 - this.alertDialogDiv.offsetHeight/2) ;
+    var leftPos &#x3D; (window.innerWidth / 2 - this.alertDialogDiv.offsetWidth / 2);
+    var topPos &#x3D; (window.innerHeight / 2 - this.alertDialogDiv.offsetHeight / 2);
     this.alertDialogDiv.style.position &#x3D; &quot;fixed&quot;;
     this.alertDialogDiv.style.left &#x3D; leftPos + &quot;px&quot;;
     this.alertDialogDiv.style.top &#x3D; topPos + &quot;px&quot;;
   }
 
+  /**
+   * On click of ok button in the alert dialog
+   */
   alertClick() {
     this.alert.emit();
     this.visibleAlert(false);
   }
 
-
+  /**
+   * To set the visibility of the dialog box
+   * @param visibility
+   */
   visibleAlert(visibility:boolean) {
     this.visible &#x3D; visibility;
     this.ele.nativeElement.style.display &#x3D; this.visible ? &#x27;block&#x27; : &#x27;none&#x27;;
@@ -589,6 +671,9 @@ export class AlertDialog implements AfterViewInit {
   }
 
 }
+/**
+ * Angular module to set up the Alertmodule
+ */
 @NgModule({
   imports: [CommonModule, ButtonModule],
   exports: [AlertDialog],

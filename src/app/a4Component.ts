@@ -7,3 +7,4 @@ export * from './alert/alert.component'
 export * from './button/button.component'
 export  * from './orderlist/orderlist.component'
 export * from './shared/commonService'
+export * from "./picklist/picklist.component"

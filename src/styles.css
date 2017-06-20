@@ -3436,6 +3436,7 @@ template {
 .col-grid-5_5
 {
   width :45.83%;
+  padding: 0;
 }
 .col-grid-5 {
   width: 41.66666667%;

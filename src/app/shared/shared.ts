@@ -1,4 +1,7 @@
 import { Component, OnInit,NgModule,ViewEncapsulation} from '@angular/core';
+/**
+ * Header component using across the various module like dialog
+ */
 @Component({
     selector: 'a4-header',
     template: '<ng-content></ng-content>',
@@ -6,7 +9,9 @@ import { Component, OnInit,NgModule,ViewEncapsulation} from '@angular/core';
 
 })
 export class Header {}
-
+/**
+ * Footer component using across the various module like dialog
+ */
 @Component({
     selector: 'a4-footer',
     template: '<ng-content></ng-content>'

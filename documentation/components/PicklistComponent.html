@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>brp4-component documentation</title>
+        <title>a4c_angular4_component documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">brp4-component documentation</a>
+            <a href="../" class="navbar-brand">a4c_angular4_component documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">brp4-component documentation</a>
+                        <a href="../index.html">a4c_angular4_component documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -76,6 +76,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PickListModule.html" >PickListModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -187,7 +190,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">brp4-component documentation</a>
+                               <a href="../index.html">a4c_angular4_component documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -240,6 +243,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PickListModule.html" >PickListModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -376,6 +382,12 @@
     <code>src/app/picklist/picklist.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Pick list component is angular 4 UI component to pick from available order list to selected order list</p><br/>
+    </p>
 
 
     <p class="comment">
@@ -433,6 +445,7 @@
                             <code>availableHeader</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Header string for the available header</p><br/></div>
                               <p>
                                 <em>Type:</em>    <code>string</code>
 
@@ -441,7 +454,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/picklist/picklist.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/picklist/picklist.component.ts:25</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -453,6 +466,7 @@
                             <code>data</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Available order list element data</p><br/></div>
                               <p>
                                 <em>Type:</em>    <code>any</code>
 
@@ -461,7 +475,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/picklist/picklist.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/picklist/picklist.component.ts:21</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -473,6 +487,7 @@
                             <code>selectedHeader</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Header string for the selected element</p><br/></div>
                               <p>
                                 <em>Type:</em>    <code>string</code>
 
@@ -481,7 +496,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/picklist/picklist.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/picklist/picklist.component.ts:29</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -497,13 +512,14 @@
                             <code>onPick</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Event Emitter on picking the element in the list</p><br/></div>
                             <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/picklist/picklist.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/picklist/picklist.component.ts:33</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -521,10 +537,28 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/picklist/picklist.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/picklist/picklist.component.ts:53</a></div>
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>constructor for the pick list component</p><br/></div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>commonService</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -550,12 +584,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/picklist/picklist.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/picklist/picklist.component.ts:68</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Implement Afterview init interface<br/>Vertically center align for the button grid</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -581,12 +616,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/picklist/picklist.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/picklist/picklist.component.ts:76</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>On row click of available grid</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -612,12 +648,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/picklist/picklist.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/picklist/picklist.component.ts:83</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>On row click of selected grid</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -643,12 +680,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/picklist/picklist.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/picklist/picklist.component.ts:90</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Click event for available to select button</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -674,12 +712,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/picklist/picklist.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/picklist/picklist.component.ts:104</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Click event for select to available button</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -711,9 +750,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/picklist/picklist.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/picklist/picklist.component.ts:49</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the data of selected data in available order list</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -731,9 +775,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/picklist/picklist.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/picklist/picklist.component.ts:53</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the data of selected data in selected order list</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -756,9 +805,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/picklist/picklist.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/picklist/picklist.component.ts:41</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Available order list  element reference</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -781,9 +835,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/picklist/picklist.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/picklist/picklist.component.ts:45</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Available and selected button element reference</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -801,9 +860,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/picklist/picklist.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/picklist/picklist.component.ts:37</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Selected order list data</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -811,51 +875,108 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit ,Input ,Output, AfterViewInit, EventEmitter,ElementRef,ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component,NgModule, OnInit ,Input ,Output, AfterViewInit, EventEmitter,ElementRef,ViewChild } from &#x27;@angular/core&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;
 import  {CommonHandler} from &#x27;../a4Component&#x27;
+import {ButtonModule} from &#x27;../a4Component&#x27;
+import {OrderlistModule} from &#x27;../a4Component&#x27;
+/**
+ * Pick list component is angular 4 UI component to pick from available order list to selected order list
+ */
 @Component({
   selector: &#x27;a4c-pick&#x27;,
   templateUrl: &#x27;./picklist.component.html&#x27;,
   styleUrls: [&#x27;./picklist.component.css&#x27;]
 })
+/**
+ *
+ */
 export class PicklistComponent implements AfterViewInit {
+  /**
+   Available order list element data
+   */
   @Input() data:any &#x3D; [];
+  /**
+   Header string for the available header
+   */
   @Input() availableHeader:string;
+  /**
+   Header string for the selected element
+   */
   @Input() selectedHeader:string;
-  @Output() onPick:EventEmitter&lt;any&gt;&#x3D;new EventEmitter&lt;any&gt;();
+  /**
+   Event Emitter on picking the element in the list
+   */
+  @Output() onPick:EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  /**
+   Selected order list data
+   */
   selectedData:any &#x3D; [];
+  /**
+   Available order list  element reference
+   */
   @ViewChild(&#x27;availableGrid&#x27;) availableGrid:ElementRef;
+  /**
+   Available and selected button element reference
+   */
   @ViewChild(&#x27;btnGrid&#x27;) btnGrid:ElementRef;
+  /**
+   *  Stores the data of selected data in available order list
+   */
   private _availableSelectedData:any;
+  /**
+   *  Stores the data of selected data in selected order list
+   */
   private  _pickSelectedData:any;
 
+  /**
+   * constructor for the pick list component
+   * @param commonService
+   */
   constructor(private commonService:CommonHandler) {
     //
 
   }
 
+  /**
+   *  Implement Afterview init interface
+   *  Vertically center align for the button grid
+   */
   ngAfterViewInit() {
     this.btnGrid.nativeElement.style.marginTop &#x3D; (this.availableGrid.nativeElement.offsetHeight - this.btnGrid.nativeElement.offsetHeight) / 2 + &quot;px&quot;;
 
   }
 
+  /**
+   On row click of available grid
+   */
   availableGridSelect(e) {
     this._availableSelectedData &#x3D; e.data;
   }
 
+  /**
+   On row click of selected grid
+   */
   selectedGridSelect(e, data) {
     this._pickSelectedData &#x3D; e.data;
   }
 
+  /**
+   Click event for available to select button
+   */
   availToSelect(e) {
     if (!this.commonService.isUndefined(this._availableSelectedData)) {
       let index &#x3D; this.data.indexOf(this._availableSelectedData);
       this.data.splice(index, 1);
       this.selectedData.push(this._availableSelectedData);
       this._availableSelectedData &#x3D; undefined;
-      this.onPick.emit({browserEvent:e,pickGridData:this.selectedData});
+      this.onPick.emit({browserEvent: e, pickGridData: this.selectedData});
     }
   }
+
+  /**
+   * Click event for select to available button
+   */
 
   selectToAvail() {
     if (!this.commonService.isUndefined(this._pickSelectedData)) {
@@ -866,6 +987,18 @@ export class PicklistComponent implements AfterViewInit {
     }
   }
 
+
+}
+/**
+ * Modules for pick list which reuses other module such as common module,buttonmodule,orderlist module
+ */
+@NgModule({
+  imports: [CommonModule, ButtonModule, OrderlistModule],
+  exports: [PicklistComponent],
+  declarations: [PicklistComponent],
+  providers: [CommonHandler]
+})
+export class PickListModule {
 
 }
 </code></pre>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>brp4-component documentation</title>
+        <title>a4c_angular4_component documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">brp4-component documentation</a>
+            <a href="../" class="navbar-brand">a4c_angular4_component documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">brp4-component documentation</a>
+                        <a href="../index.html">a4c_angular4_component documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -76,6 +76,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PickListModule.html" >PickListModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -187,7 +190,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">brp4-component documentation</a>
+                               <a href="../index.html">a4c_angular4_component documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -240,6 +243,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PickListModule.html" >PickListModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -513,9 +519,10 @@ export class AppComponent {
 &lt;div class&#x3D;&quot;col-grid-8&quot;&gt;
   &lt;a4c-order [data]&#x3D;&quot;data&quot; field&#x3D;&quot;name&quot; header&#x3D;&quot;Class List&quot;&gt;&lt;/a4c-order&gt;
 &lt;/div&gt;
-
-&lt;a4c-pick [data]&#x3D;&quot;data&quot; availableHeader&#x3D;&quot;Available Class&quot; field&#x3D;&quot;name&quot; selectedHeader&#x3D;&quot;Selected Class&quot;
-          header&#x3D;&quot;Class List&quot; btnPosition&#x3D;&quot;right&quot;&gt;&lt;/a4c-pick&gt;
+&lt;div class&#x3D;&quot;col-grid-9&quot;&gt;
+  &lt;a4c-pick [data]&#x3D;&quot;data&quot; availableHeader&#x3D;&quot;Available Class&quot; field&#x3D;&quot;name&quot; selectedHeader&#x3D;&quot;Selected Class&quot;
+            header&#x3D;&quot;Class List&quot; btnPosition&#x3D;&quot;right&quot;&gt;&lt;/a4c-pick&gt;
+&lt;/div&gt;
 &lt;!--&lt;a4c-button (click)&#x3D;&quot;showConfirm()&quot;&gt;show confirm&lt;/a4c-button&gt;--&gt;
 &lt;!--&lt;a4c-confirm header&#x3D;&quot;Header&quot; footer&#x3D;&quot;footer here&quot; visible&#x3D;&quot;true&quot; (confirm)&#x3D;&quot;confrimYesClick()&quot; closeBtn&#x3D;&quot;true&quot;--&gt;
 &lt;!--modal&#x3D;&quot;true&quot;&gt;--&gt;
@@ -551,7 +558,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--The whole content below can be removed with the new code.--><div style="text-align:center">  <h1>    Welcome to {{title}}!!  </h1></div><div class="col-grid-8">  <a4c-order [data]="data" field="name" header="Class List"></a4c-order></div><a4c-pick [data]="data" availableHeader="Available Class" field="name" selectedHeader="Selected Class"          header="Class List" btnPosition="right"></a4c-pick><!--<a4c-button (click)="showConfirm()">show confirm</a4c-button>--><!--<a4c-confirm header="Header" footer="footer here" visible="true" (confirm)="confrimYesClick()" closeBtn="true"--><!--modal="true">--><!--Place your confirmation message here--><!--</a4c-confirm>--><!--<a4c-alert header="Alert" visible="true" width="400">--><!--I am an alert. Please click ok to close--><!--</a4c-alert>--></div>'
+        var COMPONENT_TEMPLATE = '<div><!--The whole content below can be removed with the new code.--><div style="text-align:center">  <h1>    Welcome to {{title}}!!  </h1></div><div class="col-grid-8">  <a4c-order [data]="data" field="name" header="Class List"></a4c-order></div><div class="col-grid-9">  <a4c-pick [data]="data" availableHeader="Available Class" field="name" selectedHeader="Selected Class"            header="Class List" btnPosition="right"></a4c-pick></div><!--<a4c-button (click)="showConfirm()">show confirm</a4c-button>--><!--<a4c-confirm header="Header" footer="footer here" visible="true" (confirm)="confrimYesClick()" closeBtn="true"--><!--modal="true">--><!--Place your confirmation message here--><!--</a4c-confirm>--><!--<a4c-alert header="Alert" visible="true" width="400">--><!--I am an alert. Please click ok to close--><!--</a4c-alert>--></div>'
     var COMPONENTS = [{'name': 'AlertDialog', 'selector': 'a4c-alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'a4c-button'},{'name': 'ConfirmDialog', 'selector': 'a4c-confirm'},{'name': 'Footer', 'selector': 'a4-footer'},{'name': 'Header', 'selector': 'a4-header'},{'name': 'OrderlistComponent', 'selector': 'a4c-order'},{'name': 'PicklistComponent', 'selector': 'a4c-pick'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

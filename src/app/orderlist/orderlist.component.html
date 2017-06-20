@@ -1,5 +1,5 @@
-<div class="col-grid-12" #orderContianer >
-  <div class="col-grid-2" #buttonContainer>
+<div class="col-grid-12" #orderContianer>
+  <div class="col-grid-2" #buttonContainer style="padding:0px 5px">
     <a4c-button (click)="moveTop()" [block]=true customClass="primary" icon="fa fa-angle-double-up"></a4c-button>
     <a4c-button (click)="oneTop()" [block]=true customClass="primary" icon="fa fa-angle-up"></a4c-button>
     <a4c-button (click)="oneBottom()" [block]=true customClass="primary" icon="fa fa-angle-down"></a4c-button>
@@ -11,7 +11,7 @@
     </div>
     <div #orderListValues>
       <div *ngFor="let values of data">
-        <div class="a4c-list" (click)="rowClicked($event,values)">{{values[field]}}
+        <div  class="a4c-list" (click)="rowClicked($event,values)">{{values[field]}}
         </div>
       </div>
     </div>

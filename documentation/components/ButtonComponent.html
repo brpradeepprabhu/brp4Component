@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>brp4-component documentation</title>
+        <title>a4c_angular4_component documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">brp4-component documentation</a>
+            <a href="../" class="navbar-brand">a4c_angular4_component documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">brp4-component documentation</a>
+                        <a href="../index.html">a4c_angular4_component documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -76,6 +76,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PickListModule.html" >PickListModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -187,7 +190,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">brp4-component documentation</a>
+                               <a href="../index.html">a4c_angular4_component documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -240,6 +243,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/OrderlistModule.html" >OrderlistModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PickListModule.html" >PickListModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SharedModule.html" >SharedModule</a>
@@ -376,6 +382,12 @@
     <code>src/app/button/button.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>To genrate the button tag with icons and customize by adding the custom class</p><br/>
+    </p>
 
 
     <p class="comment">
@@ -433,6 +445,7 @@
                             <code>block</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>To check whether button should be display as a block</p><br/></div>
                               <p>
                                 <em>Type:</em>    <code>boolean</code>
 
@@ -441,7 +454,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/button/button.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/button/button.component.ts:26</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -453,6 +466,7 @@
                             <code>customClass</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>To add a custom class for the element</p><br/></div>
                               <p>
                                 <em>Type:</em>    <code>string</code>
 
@@ -461,7 +475,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/button/button.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/button/button.component.ts:22</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -473,11 +487,12 @@
                             <code>icon</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>To use the icon for the button</p><br/></div>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/button/button.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/button/button.component.ts:18</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -496,10 +511,28 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/button/button.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/button/button.component.ts:30</a></div>
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>To init the button component</p><br/></div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>commonService</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -525,12 +558,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/button/button.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/button/button.component.ts:43</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Implements the afterview init</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -567,9 +601,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/button/button.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/button/button.component.ts:30</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>To get the buttom tag as reference</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -581,27 +620,52 @@
 import {CommonModule} from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import {CommonHandler} from &#x27;../shared/commonService&#x27;
+
+/**
+ * To genrate the button tag with icons and customize by adding the custom class
+ */
 @Component({
   selector: &#x27;a4c-button&#x27;,
   templateUrl: &#x27;./button.component.html&#x27;,
-  styleUrls:[&#x27;./button.component.css&#x27;]
+  styleUrls: [&#x27;./button.component.css&#x27;]
 })
-
 export class ButtonComponent implements AfterViewInit {
+  /**
+   * To use the icon for the button
+   */
   @Input() icon;
+  /**
+   * To add a custom class for the element
+   */
   @Input() customClass:string;
+  /**
+   * To check whether button should be display as a block
+   */
   @Input() block:boolean;
-  @ViewChild(&#x27;buttonc&#x27;) buttonTag :ElementRef;
+  /**
+   * To get the buttom tag as reference
+   */
+  @ViewChild(&#x27;buttonc&#x27;) buttonTag:ElementRef;
+
+  /**
+   * To init the button component
+   * @param commonService
+   */
   constructor(private commonService:CommonHandler) {
 
   };
 
+  /**
+   * Implements the afterview init
+   */
   ngAfterViewInit() {
-    this.customClass &#x3D; (this.block)? &quot;block &quot;+ this.customClass : this.customClass;
-    this.commonService.addClass(this.buttonTag.nativeElement,this.customClass);
+    this.customClass &#x3D; (this.block) ? &quot;block &quot; + this.customClass : this.customClass;
+    this.commonService.addClass(this.buttonTag.nativeElement, this.customClass);
   };
 }
-
+/**
+ * Button module to use it across the other module. Use the CommonModule and Commonhandler provider
+ */
 @NgModule({
   imports: [CommonModule],
   exports: [ButtonComponent],
