@@ -14,10 +14,10 @@
     </div>
     <div #orderListValues>
       <div *ngFor="let values of dataSoruce index as i">
-        <div *ngIf="groupField && checkGroupExist(i)" style="background:#d5d5d5;padding:6px 12px">
+        <div *ngIf="groupField && checkGroupExist(i)" class="a4c_group" (click)="toggleGroupField(values)">
           {{values[groupField]}}
         </div>
-        <div class="a4c-list" (click)="rowClicked($event,values)">
+        <div class="a4c-list" (click)="rowClicked($event,values)" *ngIf="checkGroupFieldExpanded(values)">
           <input type="checkbox" [checked]="values.$$checked" *ngIf="multiple"> {{values[field]}}
         </div>
       </div>

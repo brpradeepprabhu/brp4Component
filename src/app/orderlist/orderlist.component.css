@@ -9,6 +9,17 @@
   text-align: center;
 }
 
+.a4c_group {
+  border-color: inherit;
+  box-sizing: border-box;
+  padding: .25em .5em;
+  background: #d5d5d5;
+  padding: 6px 12px;
+  background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);
+}
+
+
+
 .a4c_orderTitle {
   font-weight: bold;
   font-size: 16px;
@@ -23,8 +34,9 @@
 }
 
 .a4c-list:hover {
-  background-color: #d5d5d5;
+  background-color: #12429a;
   border: 1px solid #adadad;
+  color: white;
 }
 
 .a4c-list.active {

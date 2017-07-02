@@ -73,6 +73,11 @@ export class OrderlistComponent implements AfterViewInit {
    */
   public _data: any = [];
   public dataSoruce = [];
+  groupFieldValues = [];
+  /**
+ * Store the selected row in the list
+ */
+  selectedRow: any;
   filterSearch = ''
   @Input() get data(): any {
     return this._data;
@@ -98,12 +103,11 @@ export class OrderlistComponent implements AfterViewInit {
     this.filterData(this.filterSearch)
   }
   updateDataToRender(data) {
+
     this.dataSoruce = data;
+
   }
-  /**
-   * Store the selected row in the list
-   */
-  selectedRow: any;
+
 
   /**
    * Initalize the order list component
@@ -235,14 +239,41 @@ export class OrderlistComponent implements AfterViewInit {
     this.onRowClick.emit({ browserEvent: e, data: data, selectedData: this.selectedRow, reff: this });
   }
   checkGroupExist(index: number) {
+
     if (index === 0) {
-      return true
+      this.groupFieldValues.push({ values: this.data[index][this.groupField], expanded: false });
+      return true;
     } else {
       if (this.data[index][this.groupField] !== this.data[index - 1][this.groupField]) {
+        console.log("age", this.data[index][this.groupField])
+        let groupValues = false;
+        for (let i = 0; i < this.groupFieldValues.length; i++) {
+          if (this.groupFieldValues[i].values === this.data[index][this.groupField]) {
+            groupValues = true;
+          }
+        }
+        if (groupValues === false) {
+          this.groupFieldValues.push({ values: this.data[index][this.groupField], expanded: false });
+        }
         return true;
       }
     }
     return false;
+  }
+  checkGroupFieldExpanded(obj: object) {
+    for (let i = 0; i < this.groupFieldValues.length; i++) {
+      if (this.groupFieldValues[i].values === obj[this.groupField]) {
+        return this.groupFieldValues[i].expanded;
+      }
+    }
+    return true;
+  }
+  toggleGroupField(obj: object) {
+    for (let i = 0; i < this.groupFieldValues.length; i++) {
+      if (this.groupFieldValues[i].values === obj[this.groupField]) {
+        this.groupFieldValues[i].expanded = !this.groupFieldValues[i].expanded;
+      }
+    }
   }
   filterData(filter: string) {
     let filterData = this.data;
