@@ -2,6 +2,7 @@ import { Input, Component, OnInit, AfterViewInit, NgModule, Output, EventEmitter
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from '../a4Component';
 import { CommonHandler } from '../shared/commonService';
+import { FormsModule } from '@angular/forms';
 /**
  * Angular 4 component to display the object in order list
  */
@@ -71,6 +72,8 @@ export class OrderlistComponent implements AfterViewInit {
    * To display the data in the grid
    */
   public _data: any = [];
+  public dataSoruce = [];
+  filterSearch = ''
   @Input() get data(): any {
     return this._data;
   }
@@ -92,6 +95,10 @@ export class OrderlistComponent implements AfterViewInit {
         })
       }
     }
+    this.filterData(this.filterSearch)
+  }
+  updateDataToRender(data) {
+    this.dataSoruce = data;
   }
   /**
    * Store the selected row in the list
@@ -142,6 +149,7 @@ export class OrderlistComponent implements AfterViewInit {
         this.data.splice(index, 1);
         this.data.splice(0, 0, this.selectedRow[i].data);
       }
+      this.updateDataToRender(this.data);
     }
   }
 
@@ -157,6 +165,7 @@ export class OrderlistComponent implements AfterViewInit {
           this.data[index - 1] = this.selectedRow[i].data;
         }
       }
+      this.updateDataToRender(this.data);
     }
   }
   /**
@@ -171,6 +180,7 @@ export class OrderlistComponent implements AfterViewInit {
           this.data[index + 1] = this.selectedRow[i].data;
         }
       }
+      this.updateDataToRender(this.data);
     }
   }
 
@@ -186,6 +196,7 @@ export class OrderlistComponent implements AfterViewInit {
         this.data.push(this.selectedRow[i].data);
 
       }
+      this.updateDataToRender(this.data);
     }
   }
 
@@ -195,7 +206,6 @@ export class OrderlistComponent implements AfterViewInit {
    * @param data
    */
   rowClicked(e, data) {
-    console.log("multiple", this.multiple);
     let valuesPresent = -1;
     for (let i = 0; i < this.selectedRow.length; i++) {
       if (this.selectedRow[i].target === e.currentTarget) {
@@ -234,12 +244,22 @@ export class OrderlistComponent implements AfterViewInit {
     }
     return false;
   }
+  filterData(filter: string) {
+    let filterData = this.data;
+    if (filter.trim() !== '' && filter !== undefined && filter !== null) {
+      const field: string = this.field;
+      filterData = this.data.filter(function (obj) {
+        return obj[field].toLowerCase().indexOf(filter) >= 0;
+      });
+    }
+    this.updateDataToRender(filterData);
+  }
 }
 /**
  * Orderlist module  to use the common module and button module
  */
 @NgModule({
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule, FormsModule, ButtonModule],
   exports: [OrderlistComponent],
   declarations: [OrderlistComponent],
   providers: [CommonHandler]

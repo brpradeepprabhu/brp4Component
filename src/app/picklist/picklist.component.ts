@@ -2,6 +2,7 @@ import { Component, ContentChild, NgModule, Input, Output, AfterViewInit, EventE
 import { CommonModule } from '@angular/common'
 import { CommonHandler } from '../a4Component'
 import { ButtonModule } from '../a4Component'
+import { FormsModule } from '@angular/forms';
 import { OrderlistModule, OrderlistComponent } from '../a4Component'
 /**
  * Pick list component is angular 4 UI component to pick from available order list to selected order list
@@ -117,6 +118,7 @@ export class PicklistComponent implements AfterViewInit {
       if (this.pickGridComp.handleDataChange) {
         this.pickGridComp.handleDataChange();
       }
+      this.availableGridComp.handleDataChange();
       this._availableSelectedData = [];
       this.availableGridComp.selectedRow = [];
       this.onPick.emit({ browserEvent: e, pickGridData: this.selectedData });
@@ -137,6 +139,7 @@ export class PicklistComponent implements AfterViewInit {
       }
       this._pickSelectedData = [];
       this.availableGridComp.handleDataChange();
+      this.pickGridComp.handleDataChange();
       this.pickGridComp.selectedRow = [];
     }
   }

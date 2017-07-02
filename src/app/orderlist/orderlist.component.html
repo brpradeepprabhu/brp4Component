@@ -9,8 +9,11 @@
     <div class="a4c_orderheader" *ngIf="header">
       <span class="a4c_orderTitle">{{header}}</span>
     </div>
+    <div>
+      <input type="text" [(ngModel)]="filterSearch" (ngModelChange)="filterData(filterSearch)" placeholder="Search" class="a4c-search">
+    </div>
     <div #orderListValues>
-      <div *ngFor="let values of data index as i">
+      <div *ngFor="let values of dataSoruce index as i">
         <div *ngIf="groupField && checkGroupExist(i)" style="background:#d5d5d5;padding:6px 12px">
           {{values[groupField]}}
         </div>

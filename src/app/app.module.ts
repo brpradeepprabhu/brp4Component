@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/Forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ConfirmDialogModule, SharedModule, ButtonModule, AlertModule, OrderlistModule, PickListModule } from './a4Component';
@@ -10,6 +11,7 @@ import { NameService } from './name.service'
   declarations: [
     AppComponent],
   imports: [
+    FormsModule,
     CommonModule,
     BrowserModule,
     ConfirmDialogModule,
