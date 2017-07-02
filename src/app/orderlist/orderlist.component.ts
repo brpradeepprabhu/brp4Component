@@ -276,6 +276,7 @@ export class OrderlistComponent implements AfterViewInit {
     }
   }
   filterData(filter: string) {
+    this.expandAll();
     let filterData = this.data;
     if (filter.trim() !== '' && filter !== undefined && filter !== null) {
       const field: string = this.field;
@@ -284,6 +285,17 @@ export class OrderlistComponent implements AfterViewInit {
       });
     }
     this.updateDataToRender(filterData);
+  }
+  expandAll() {
+    for (let i = 0; i < this.groupFieldValues.length; i++) {
+      this.groupFieldValues[i].expanded = true;
+
+    }
+  }
+  collapseAll() {
+    for (let i = 0; i < this.groupFieldValues.length; i++) {
+      this.groupFieldValues[i].expanded = false;
+    }
   }
 }
 /**
