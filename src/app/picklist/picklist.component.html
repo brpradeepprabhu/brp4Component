@@ -1,13 +1,13 @@
 <div class="col-gird-12">
   <div class="col-grid-5_5" #availableGrid>
-    <a4c-order [data]="data" field="name" header="{{availableHeader}}" (onRowClick)="availableGridSelect($event)" ></a4c-order>
+    <a4c-order [data]="data" field="name" [groupField]="groupField" header="{{availableHeader}}" (onRowClick)="availableGridSelect($event)" [multiple]="multiple" [height]="height"></a4c-order>
   </div>
   <div class="col-grid-1" #btnGrid style="padding: 0;">
     <a4c-button (click)="availToSelect()" [block]=true customClass="primary" icon="fa fa-angle-right"></a4c-button>
     <a4c-button (click)="selectToAvail()" [block]=true customClass="primary" icon="fa fa-angle-left"></a4c-button>
   </div>
-  <div class="col-grid-5_5" >
-    <a4c-order [data]="selectedData" field="name" header="{{selectedHeader}}"  btnPosition="right" (onRowClick)="selectedGridSelect($event)" ></a4c-order>
+  <div class="col-grid-5_5">
+    <a4c-order [data]="selectedData" #pickGrid [groupField]="groupField" field="name" header="{{selectedHeader}}" btnPosition="right" [multiple]="multiple" [height]="height" (onRowClick)="selectedGridSelect($event)"></a4c-order>
   </div>
 
 </div>

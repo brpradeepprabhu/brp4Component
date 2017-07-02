@@ -1,4 +1,4 @@
-import { Component, OnInit,NgModule,ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, NgModule, ViewEncapsulation } from '@angular/core';
 /**
  * Header component using across the various module like dialog
  */
@@ -8,7 +8,7 @@ import { Component, OnInit,NgModule,ViewEncapsulation} from '@angular/core';
 
 
 })
-export class Header {}
+export class Header { }
 /**
  * Footer component using across the various module like dialog
  */
@@ -16,11 +16,11 @@ export class Header {}
     selector: 'a4-footer',
     template: '<ng-content></ng-content>'
 })
-export class Footer {}
+export class Footer { }
 
 @NgModule({
-  exports: [Header],
-  declarations: [Header]
+    exports: [Header],
+    declarations: [Header]
 })
 export class SharedModule { }
 

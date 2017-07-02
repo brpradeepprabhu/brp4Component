@@ -1,5 +1,6 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AlertDialog } from './a4Component';
+import { NameService } from './name.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,16 +8,15 @@ import { AlertDialog } from './a4Component';
 })
 export class AppComponent {
   title = 'app';
-  @ViewChild(AlertDialog) alertDialog:AlertDialog;
+  data = [];
+  @ViewChild(AlertDialog) alertDialog: AlertDialog;
+  constructor(private ns: NameService) {
+    this.data = this.ns.userData
+   }
   confrimYesClick() {
-    alert("the confirm parent emitter")
+    alert('the confirm parent emitter')
   }
-  showConfirm()
-  {
+  showConfirm() {
     this.alertDialog.visibleAlert(true);
   }
-  data = [{name: "a", age: "28"}, {name: "b", age: "28"}, {name: "c", age: "28"}, {
-    name: "d",
-    age: "28"
-  }, {name: "e", age: "28"}, {name: "f", age: "28"}, {name: "g", age: "28"}, {name: "h", age: "28"}]
 }

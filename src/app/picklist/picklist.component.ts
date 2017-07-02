@@ -1,8 +1,8 @@
-import { Component,NgModule, OnInit ,Input ,Output, AfterViewInit, EventEmitter,ElementRef,ViewChild } from '@angular/core';
-import {CommonModule} from '@angular/common'
-import  {CommonHandler} from '../a4Component'
-import {ButtonModule} from '../a4Component'
-import {OrderlistModule} from '../a4Component'
+import { Component, ContentChild, NgModule, Input, Output, AfterViewInit, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common'
+import { CommonHandler } from '../a4Component'
+import { ButtonModule } from '../a4Component'
+import { OrderlistModule, OrderlistComponent } from '../a4Component'
 /**
  * Pick list component is angular 4 UI component to pick from available order list to selected order list
  */
@@ -16,47 +16,63 @@ import {OrderlistModule} from '../a4Component'
  */
 export class PicklistComponent implements AfterViewInit {
   /**
-   Available order list element data
-   */
-  @Input() data:any = [];
-  /**
    Header string for the available header
    */
-  @Input() availableHeader:string;
+  @Input() availableHeader: string;
   /**
    Header string for the selected element
    */
-  @Input() selectedHeader:string;
+  @Input() selectedHeader: string;
   /**
    Event Emitter on picking the element in the list
    */
-  @Output() onPick:EventEmitter<any> = new EventEmitter<any>();
+  @Output() onPick: EventEmitter<any> = new EventEmitter<any>();
   /**
    Selected order list data
    */
-  selectedData:any = [];
+  @Input() selectedData: any = [];
   /**
    Available order list  element reference
    */
-  @ViewChild('availableGrid') availableGrid:ElementRef;
+  @ViewChild('availableGrid') availableGrid: ElementRef;
+  /**
+   Available order list  element component refference
+   */
+  @ViewChild(OrderlistComponent) availableGridComp: OrderlistComponent;
+
+  /**
+   Available order list  element component refference
+   */
+  @ViewChild('pickGrid') pickGridComp: OrderlistComponent;
   /**
    Available and selected button element reference
    */
-  @ViewChild('btnGrid') btnGrid:ElementRef;
+  @ViewChild('btnGrid') btnGrid: ElementRef;
+
+  @Input() multiple = false;
+
+  @Input() height = 250;
   /**
    *  Stores the data of selected data in available order list
    */
-  private _availableSelectedData:any;
+  private _availableSelectedData: any;
   /**
    *  Stores the data of selected data in selected order list
    */
-  private  _pickSelectedData:any;
+  private _pickSelectedData: any;
 
   /**
    * constructor for the pick list component
    * @param commonService
    */
-  constructor(private commonService:CommonHandler) {
+
+  @Input() groupField: string;
+  /**
+   Available order list element data
+   */
+  @Input() data: any = [];
+
+  constructor(private commonService: CommonHandler) {
     //
 
   }
@@ -66,7 +82,9 @@ export class PicklistComponent implements AfterViewInit {
    *  Vertically center align for the button grid
    */
   ngAfterViewInit() {
-    this.btnGrid.nativeElement.style.marginTop = (this.availableGrid.nativeElement.offsetHeight - this.btnGrid.nativeElement.offsetHeight) / 2 + "px";
+    console.log("---", this.pickGridComp);
+    const btnNative = this.btnGrid.nativeElement;
+    btnNative.style.marginTop = (this.availableGrid.nativeElement.offsetHeight - btnNative.offsetHeight) / 2 + 'px';
 
   }
 
@@ -74,14 +92,15 @@ export class PicklistComponent implements AfterViewInit {
    On row click of available grid
    */
   availableGridSelect(e) {
-    this._availableSelectedData = e.data;
+    this._availableSelectedData = e.selectedData;
   }
 
   /**
    On row click of selected grid
    */
-  selectedGridSelect(e, data) {
-    this._pickSelectedData = e.data;
+  selectedGridSelect(e, data, selectedData) {
+    this._pickSelectedData = e.selectedData;
+    this.pickGridComp = e.reff;
   }
 
   /**
@@ -89,11 +108,18 @@ export class PicklistComponent implements AfterViewInit {
    */
   availToSelect(e) {
     if (!this.commonService.isUndefined(this._availableSelectedData)) {
-      let index = this.data.indexOf(this._availableSelectedData);
-      this.data.splice(index, 1);
-      this.selectedData.push(this._availableSelectedData);
-      this._availableSelectedData = undefined;
-      this.onPick.emit({browserEvent: e, pickGridData: this.selectedData});
+      for (let i = 0; i < this._availableSelectedData.length; i++) {
+        const index = this.data.indexOf(this._availableSelectedData[i].data);
+        this.data.splice(index, 1);
+        this._availableSelectedData[i].data.$$checked = false;
+        this.selectedData.push(this._availableSelectedData[i].data);
+      }
+      if (this.pickGridComp.handleDataChange) {
+        this.pickGridComp.handleDataChange();
+      }
+      this._availableSelectedData = [];
+      this.availableGridComp.selectedRow = [];
+      this.onPick.emit({ browserEvent: e, pickGridData: this.selectedData });
     }
   }
 
@@ -103,10 +129,15 @@ export class PicklistComponent implements AfterViewInit {
 
   selectToAvail() {
     if (!this.commonService.isUndefined(this._pickSelectedData)) {
-      let index = this.selectedData.indexOf(this._pickSelectedData);
-      this.selectedData.splice(index, 1);
-      this.data.push(this._pickSelectedData);
-      this._pickSelectedData = undefined;
+      for (let i = 0; i < this._pickSelectedData.length; i++) {
+        const index = this.selectedData.indexOf(this._pickSelectedData[i].data);
+        this.selectedData.splice(index, 1);
+        this._pickSelectedData[i].data.$$checked = false;
+        this.data.push(this._pickSelectedData[i].data);
+      }
+      this._pickSelectedData = [];
+      this.availableGridComp.handleDataChange();
+      this.pickGridComp.selectedRow = [];
     }
   }
 

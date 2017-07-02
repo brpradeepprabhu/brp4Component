@@ -5,15 +5,15 @@
   </h1>
 
 </div>
-<div class="col-grid-8">
-  <a4c-order [data]="data" field="name" header="Class List"></a4c-order>
-</div>
+<!--<div class="col-grid-8">
+  <a4c-order [data]="data" field="name" header="Class List" [control]="false" [multiple]="true"></a4c-order>
+</div>-->
 
 <div class="col-grid-6">
-  <a4c-pick [data]="data" availableHeader="Available Class" field="name" selectedHeader="Selected Class"
-            header="Class List" btnPosition="right"></a4c-pick>
+  <a4c-pick [data]="data" availableHeader="Available Class" field="name" selectedHeader="Selected Class" header="Class List"
+  groupField="age" [multiple]="true" ></a4c-pick>
 </div>
-<a4c-button (click)="showConfirm()">show confirm</a4c-button>
+<!--<a4c-button (click)="showConfirm()">show confirm</a4c-button>
 <a4c-confirm header="Header" footer="footer here" visible="true" (confirm)="confrimYesClick()" closeBtn="true"
 modal="true">
 Place your confirmation message here
@@ -21,4 +21,4 @@ Place your confirmation message here
 
 <a4c-alert header="Alert" visible="true" width="400">
 I am an alert. Please click ok to close
-</a4c-alert>
+</a4c-alert>-->
